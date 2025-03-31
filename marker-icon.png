@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="40" viewBox="0 0 30 40">
+  <!-- Map Pin -->
+  <path d="M15,2 C8.3726,2 3,7.3726 3,14 C3,24 15,38 15,38 C15,38 27,24 27,14 C27,7.3726 21.6274,2 15,2 Z" fill="#3498db" stroke="#2980b9" stroke-width="2"/>
+  
+  <!-- Recycle Symbol -->
+  <g transform="translate(15, 14) scale(0.7)">
+    <path d="M-3,-5 L0,-10 L3,-5 L1,-5 L0,-7 L-1,-5 Z" fill="#ffffff" transform="rotate(0 0 0)"/>
+    <path d="M-3,-5 L0,-10 L3,-5 L1,-5 L0,-7 L-1,-5 Z" fill="#ffffff" transform="rotate(120 0 0)"/>
+    <path d="M-3,-5 L0,-10 L3,-5 L1,-5 L0,-7 L-1,-5 Z" fill="#ffffff" transform="rotate(240 0 0)"/>
+  </g>
+</svg> 

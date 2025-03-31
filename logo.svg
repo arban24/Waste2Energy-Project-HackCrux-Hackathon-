@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Background Circle -->
+  <circle cx="100" cy="100" r="90" fill="#f0f9f6"/>
+  
+  <!-- Recycling Symbol (Modified) -->
+  <g fill="none" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Arrow 1 - Green -->
+    <path d="M100,40 L140,100 L120,100 L100,65 L80,100 L60,100 Z" stroke="#2ecc71" fill="#2ecc71" transform="rotate(0 100 100)"/>
+    
+    <!-- Arrow 2 - Blue -->
+    <path d="M100,40 L140,100 L120,100 L100,65 L80,100 L60,100 Z" stroke="#3498db" fill="#3498db" transform="rotate(120 100 100)"/>
+    
+    <!-- Arrow 3 - Teal -->
+    <path d="M100,40 L140,100 L120,100 L100,65 L80,100 L60,100 Z" stroke="#16a085" fill="#16a085" transform="rotate(240 100 100)"/>
+  </g>
+  
+  <!-- Energy Bolt -->
+  <path d="M100,75 L85,120 L105,120 L90,160 L120,105 L100,105 L115,75 Z" fill="#f39c12" stroke="#e67e22" stroke-width="2"/>
+</svg> 

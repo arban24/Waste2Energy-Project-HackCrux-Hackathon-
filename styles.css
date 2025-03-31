@@ -1,0 +1,2351 @@
+/* 
+* Waste to Energy Website Styles
+* A modern, eco-friendly design with green and blue color palette
+*/
+
+:root {
+    /* Color Variables */
+    --primary-color: #2ecc71; /* Green */
+    --primary-color-rgb: 46, 204, 113; /* RGB values for primary color */
+    --secondary-color: #3498db; /* Blue */
+    --secondary-color-rgb: 52, 152, 219; /* RGB values for secondary color */
+    --dark-color: #2c3e50;
+    --light-color: #ecf0f1;
+    --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    --text-color: #333;
+    --text-light: #7f8c8d;
+    --text-dark: #2c3e50;
+    --text-medium: #555;
+    --white: #ffffff;
+    --light-bg: #f9f9f9;
+    --border-color: #e0e0e0;
+    --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+    
+    /* Dark Mode Colors */
+    --dark-bg: #1a2639;
+    --dark-bg-alt: #1c2a43;
+    --dark-card: #2a3950;
+    --dark-text: #ecf0f1;
+    --green-accent: #2ecc71;
+    --green-accent-rgb: 46, 204, 113; /* RGB values for green accent */
+}
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 62.5%; /* 1rem = 10px */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--light-color);
+    overflow-x: hidden;
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 120rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+h1 {
+    font-size: 4.2rem;
+}
+
+h2 {
+    font-size: 3.6rem;
+}
+
+h3 {
+    font-size: 2.4rem;
+}
+
+p {
+    margin-bottom: 2rem;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+ul {
+    list-style: none;
+}
+
+/* Buttons */
+.btn-primary, .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.2rem 2.4rem;
+    border-radius: 5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    cursor: pointer;
+    position: relative;
+    z-index: 5;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.btn-primary:before, .btn-secondary:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: width 0.3s ease;
+    z-index: -1;
+}
+
+.btn-primary:hover:before, .btn-secondary:hover:before {
+    width: 100%;
+}
+
+.btn-primary:active, .btn-secondary:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #33d978; /* Changed hover color to bright green */
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid var(--primary-color);
+    border-color: #33d978;
+    color: #33d978;
+}
+
+.btn-secondary:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+/* Dark Mode Toggle */
+.mode-toggle {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background-color: var(--dark-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 100;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.mode-toggle i {
+    color: white;
+    font-size: 1.8rem;
+}
+
+/* Navigation */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: var(--shadow);
+    z-index: 90;
+    padding: 1.5rem 0;
+    transition: var(--transition);
+}
+
+nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 4rem;
+    margin-right: 1rem;
+}
+
+.logo h1 {
+    font-size: 2.4rem;
+    margin-bottom: 0;
+    color: var(--dark-color);
+}
+
+.logo span {
+    color: var(--primary-color);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links li {
+    margin-left: 2rem;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    position: relative;
+    padding: 0.5rem;
+}
+
+.nav-links a:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: var(--transition);
+}
+
+.nav-links a:hover:before, 
+.nav-links a.active:before {
+    width: 100%;
+}
+
+.menu-toggle {
+    font-size: 2.4rem;
+    cursor: pointer;
+    display: none;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    padding-top: 10rem;
+    position: relative;
+    overflow: hidden;
+    background-image: linear-gradient(135deg, rgba(46, 204, 113, 0.8), rgba(52, 152, 219, 0.8)), url('../images/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    z-index: 1;
+}
+
+.hero .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: calc(100% - 5rem);
+}
+
+.hero-content {
+    width: 50%;
+}
+
+.hero h1 {
+    font-size: 5rem;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+    animation-delay: 0.2s;
+}
+
+.hero h1 span {
+    color: var(--light-color);
+}
+
+.hero p {
+    font-size: 1.8rem;
+    margin-bottom: 3rem;
+    animation-delay: 0.4s;
+}
+
+.hero-buttons {
+    display: flex;
+    animation-delay: 0.6s;
+    position: relative;
+    z-index: 5;
+}
+
+.hero-buttons .btn-primary {
+    margin-right: 1.5rem;
+}
+
+.hero-buttons a {
+    cursor: pointer;
+}
+
+.hero-image {
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    object-fit: cover;
+}
+
+.hero-image img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.wave-divider {
+    position: absolute;
+    bottom: -30px;
+    left: 0;
+    width: 100%;
+    z-index: 5;
+    filter: drop-shadow(0px -5px 5px rgba(0, 0, 0, 0.05));
+    transform: translateY(5px);
+}
+
+.wave-divider svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* Technologies Section */
+.technologies {
+    padding: 10rem 0;
+    position: relative;
+    z-index: 1;
+    margin-top: 0rem;
+    background-color: var(--white);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.section-header h2 {
+    color: var(--dark-color);
+    position: relative;
+    display: inline-block;
+}
+
+.section-header h2:after {
+    content: '';
+    position: absolute;
+    bottom: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 5rem;
+    height: 0.3rem;
+    background: var(--gradient-primary);
+}
+
+.section-header p {
+    color: var(--text-light);
+    max-width: 60rem;
+    margin: 2rem auto;
+}
+
+.tech-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 3rem;
+}
+
+.tech-card {
+    background-color: white;
+    padding: 3rem;
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.tech-card:hover {
+    transform: translateY(-1rem);
+    box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.15);
+}
+
+.tech-card:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0.5rem;
+    background: var(--gradient-primary);
+}
+
+.card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    margin-bottom: 2rem;
+}
+
+.card-icon i {
+    color: white;
+    font-size: 3rem;
+}
+
+.tech-card h3 {
+    margin-bottom: 1.5rem;
+}
+
+.tech-card p {
+    color: var(--text-light);
+    margin-bottom: 2rem;
+}
+
+.read-more {
+    display: flex;
+    align-items: center;
+    color: var(--primary-color);
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    z-index: 3;
+}
+
+.read-more i {
+    margin-left: 0.5rem;
+    transition: var(--transition);
+}
+
+.read-more:hover i {
+    transform: translateX(0.5rem);
+}
+
+/* Infographic Section */
+/* General styling */
+.infographic {
+    padding: 10rem 0;
+    background-color: #f9f9f9;
+    position: relative;
+    z-index: 1;
+}
+
+.infographic-container {
+    max-width: 80rem;
+    margin: 0 auto;
+    position: relative;
+}
+
+.infographic-container:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0.4rem;
+    height: 100%;
+    background-color: var(--primary-color);
+    z-index: 0;
+}
+
+.infographic-step {
+    display: flex;
+    margin-bottom: 5rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Keep text block alignment same */
+.infographic-step:nth-child(odd) {
+    flex-direction: row-reverse;
+}
+
+/* Number styling */
+.step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    color: white;
+    font-size: 2.4rem;
+    font-weight: 700;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.2);
+}
+
+/* Text block */
+.step-content {
+    width: calc(50% - 5rem);
+    padding: 3rem;
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+}
+
+/* Icon styling */
+.step-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    background-color: var(--secondary-color);
+    position: absolute;
+    /* top: 50%; */
+    transform: translateY(-50%);
+}
+
+/* Adjusting icon position */
+/* Odd steps (1, 3, 5...) - Move icons to the right */
+.infographic-step:nth-child(odd) .step-icon {
+    left: auto;
+    right: 2.5rem;  /* Move icon further right */
+}
+
+/* Even steps (2, 4, 6...) - Move icons to the left */
+.infographic-step:nth-child(even) .step-icon {
+    right: auto;
+    left: 2.5rem;  /* Move icon further left */
+}
+
+/* Icon inside */
+.step-icon i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: white;
+    font-size: 2rem;
+}
+
+
+/* Case Studies Section */
+.case-studies {
+    padding: 10rem 0;
+    position: relative;
+    z-index: 1;
+}
+
+.map-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+}
+
+#case-study-map {
+    width: 100%;
+    height: 40rem;
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+}
+
+.case-study-info {
+    width: 100%;
+    max-width: 70rem;
+}
+
+.case-study-card {
+    background-color: white;
+    padding: 3rem;
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+}
+
+.case-study-card.hidden {
+    display: none;
+}
+
+.case-study-card h3 {
+    margin-bottom: 1.5rem;
+}
+
+.case-study-card p {
+    margin-bottom: 2rem;
+}
+
+.case-study-card ul {
+    margin-bottom: 2.5rem;
+}
+
+.case-study-card li {
+    margin-bottom: 1rem;
+    position: relative;
+    padding-left: 2.5rem;
+}
+
+.case-study-card li:before {
+    content: '\f00c';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.case-study-card a {
+    display: inline-block;
+    position: relative;
+    z-index: 3;
+    cursor: pointer;
+}
+
+/* Calculator Section */
+.calculator {
+    padding: 80px 0;
+    background-color: var(--light-bg);
+    position: relative;
+    z-index: 1;
+}
+
+.calculator-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.calculator-inputs {
+    flex: 1;
+    min-width: 300px;
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.calculator-results {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.result-card {
+    background-color: var(--white);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.result-card h3 {
+    margin-bottom: 15px;
+    color: var(--primary-color);
+    font-size: 18px;
+}
+
+.result-value {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.calculator-visualization {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.calculator-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Additional Info Section (Circular Economy) */
+.additional-info {
+    padding: 80px 0;
+    background-color: var(--white);
+    position: relative;
+    z-index: 1;
+}
+
+.additional-info-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: center;
+}
+
+.info-image {
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+}
+
+.info-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.info-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.info-text h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
+.info-text p {
+    margin-bottom: 20px;
+    line-height: 1.7;
+    color: var(--text-medium);
+}
+
+.info-text ul {
+    margin-bottom: 25px;
+    padding-left: 20px;
+}
+
+.info-text li {
+    margin-bottom: 8px;
+    color: var(--text-medium);
+    position: relative;
+    padding-left: 5px;
+}
+
+.info-text li::before {
+    content: "•";
+    color: var(--primary-color);
+    font-weight: bold;
+    display: inline-block; 
+    width: 1em;
+    margin-left: -1em;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+}
+
+body.dark-mode nav {
+    background-color: var(--dark-card);
+}
+
+body.dark-mode .logo h1,
+body.dark-mode .nav-links a {
+    color: var(--dark-text);
+}
+
+body.dark-mode .section-header h2 {
+    color: var(--dark-text);
+}
+
+body.dark-mode .tech-card,
+body.dark-mode .case-study-card,
+body.dark-mode .blog-card,
+body.dark-mode .form-group label,
+body.dark-mode .infographic-step {
+    color: var(--dark-text);
+}
+
+body.dark-mode .step-content h3,
+body.dark-mode .case-study-card h3,
+body.dark-mode .blog-content h3,
+body.dark-mode .info-item h3,
+body.dark-mode .footer-col h3 {
+    color: var(--green-accent);
+}
+
+body.dark-mode .blog-content p,
+body.dark-mode .case-study-card p,
+body.dark-mode .footer-col ul li a,
+body.dark-mode .footer-bottom p {
+    color: var(--dark-text);
+}
+
+body.dark-mode .footer-col ul li a:hover {
+    color: var(--green-accent);
+}
+
+body.dark-mode .text-light,
+body.dark-mode p,
+body.dark-mode .step-content p,
+body.dark-mode .case-study-card li {
+    color: var(--dark-text);
+}
+
+body.dark-mode .form-group input,
+body.dark-mode .form-group select,
+body.dark-mode .form-group textarea {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+    border-color: #4a5568;
+}
+
+body.dark-mode .mode-toggle {
+    background-color: var(--dark-card);
+}
+
+body.dark-mode .floating-nav-item {
+    background-color: var(--dark-card);
+    color: var(--dark-text);
+}
+
+body.dark-mode .floating-nav-item:hover {
+    background-color: var(--green-accent);
+}
+
+/* Fix button clickability */
+.btn-primary, .btn-secondary {
+    cursor: pointer;
+    position: relative;
+    z-index: 5;
+    transition: all 0.3s ease;
+}
+
+.read-more, .social-icon, .back-to-top, .floating-nav-item {
+    cursor: pointer;
+    position: relative;
+    z-index: 5;
+}
+
+/* Improve icon alignment */
+.step-icon i, .info-icon i, .card-icon i, .social-icon i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.floating-nav-item i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* Ensure contrast in dark mode for calculator results */
+.dark-mode .result-value {
+    color: var(--dark-text);
+}
+
+/* Improve visibility for form inputs in dark mode */
+.dark-mode .form-group input:focus,
+.dark-mode .form-group select:focus,
+.dark-mode .form-group textarea:focus {
+    border-color: var(--green-accent);
+    box-shadow: 0 0 0 2px rgba(46, 204, 113, 0.2);
+}
+
+/* Fix blog card contrast in dark mode */
+.dark-mode .blog-card {
+    background-color: var(--dark-card);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .blog-date {
+    color: var(--green-accent);
+}
+
+/* Fix tech cards in dark mode */
+.dark-mode .tech-card {
+    background-color: var(--dark-card);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .tech-card:hover {
+    background-color: var(--dark-bg-alt);
+    transform: translateY(-10px);
+}
+
+.dark-mode .tech-card:before {
+    background-color: var(--primary-color);
+}
+
+/* Fix footer links in dark mode */
+.dark-mode footer {
+    background-color: var(--dark-card);
+}
+
+/* Fix case studies in dark mode */
+.dark-mode .case-study-card {
+    background-color: var(--dark-card);
+}
+
+/* Blog Section */
+.blog {
+    padding: 10rem 0;
+    position: relative;
+    z-index: 1;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 3rem;
+    margin-bottom: 5rem;
+}
+
+.blog-card {
+    background-color: white;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.blog-card:hover {
+    transform: translateY(-1rem);
+    box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.15);
+}
+
+.blog-image {
+    height: 20rem;
+    overflow: hidden;
+}
+
+.blog-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.blog-card:hover .blog-image img {
+    transform: scale(1.1);
+}
+
+.blog-content {
+    padding: 2rem;
+}
+
+.blog-date {
+    font-size: 1.4rem;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.blog-content h3 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.blog-content p {
+    margin-bottom: 2rem;
+}
+
+.blog-cta {
+    text-align: center;
+}
+
+/* Contact Section */
+.contact {
+    padding: 10rem 0;
+    background-color: #f9f9f9;
+    position: relative;
+    z-index: 1;
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 3rem;
+}
+
+.info-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    margin-right: 2rem;
+    flex-shrink: 0;
+}
+
+.info-icon i {
+    color: white;
+    font-size: 2rem;
+}
+
+.info-item h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.social-media {
+    display: flex;
+    margin-top: 2rem;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    margin-right: 1.5rem;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.social-icon:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-0.5rem);
+}
+
+.contact-form {
+    background-color: white;
+    padding: 3rem;
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    padding-top: 5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 5rem;
+    padding-bottom: 5rem;
+}
+
+.footer-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-logo img {
+    height: 5rem;
+    margin-bottom: 1.5rem;
+}
+
+.footer-logo h2 {
+    font-size: 2.4rem;
+    margin-bottom: 1rem;
+}
+
+.footer-logo span {
+    color: var(--primary-color);
+}
+
+.footer-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+}
+
+.footer-col h3 {
+    color: white;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.footer-col h3:after {
+    content: '';
+    position: absolute;
+    bottom: -1rem;
+    left: 0;
+    width: 3rem;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+.footer-col ul li {
+    margin-bottom: 1rem;
+}
+
+.footer-col ul li a {
+    color: var(--light-color);
+    transition: var(--transition);
+}
+
+.footer-col ul li a:hover {
+    color: var(--primary-color);
+    padding-left: 0.5rem;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.back-to-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.back-to-top:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-0.5rem);
+}
+
+/* Floating Navigation */
+.floating-nav {
+    position: fixed;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+}
+
+.floating-nav-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: var(--shadow);
+    margin: 0.7rem 0;
+    color: var(--primary-color);
+    position: relative;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.floating-nav-item:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateX(-0.5rem);
+}
+
+.floating-nav-item:hover:before {
+    opacity: 1;
+    transform: translateX(-1rem);
+}
+
+.floating-nav-item:before {
+    content: attr(data-tooltip);
+    position: absolute;
+    right: 6rem;
+    top: 50%;
+    transform: translateX(-2rem) translateY(-50%);
+    background-color: var(--dark-color);
+    color: white;
+    padding: 0.8rem 1.2rem;
+    border-radius: 0.5rem;
+    font-size: 1.4rem;
+    opacity: 0;
+    white-space: nowrap;
+    pointer-events: none;
+    transition: var(--transition);
+}
+
+.floating-nav-item:after {
+    content: '';
+    position: absolute;
+    right: 5.5rem;
+    top: 50%;
+    transform: translateX(-0.5rem) translateY(-50%);
+    border-width: 0.5rem;
+    border-style: solid;
+    border-color: transparent transparent transparent var(--dark-color);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.floating-nav-item:hover:after {
+    opacity: 1;
+    transform: translateX(-0.2rem) translateY(-50%);
+}
+
+/* Animations */
+.animate-fade-in {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+.animate-slide-in {
+    opacity: 0;
+    transform: translateX(5rem);
+    animation: slideIn 1s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 1024px) {
+    html {
+        font-size: 56.25%; /* 9px */
+    }
+    
+    .hero .container {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 5rem;
+    }
+    
+    .hero-content, .hero-image {
+        width: 100%;
+    }
+    
+    .hero-buttons {
+        justify-content: center;
+        margin-bottom: 2rem;
+    }
+    
+    .hero-image img {
+        max-width: 90%;
+        margin: 0 auto;
+        display: block;
+    }
+    
+    .wave-divider {
+        bottom: -20px;
+    }
+    
+    .infographic-container:before {
+        left: 3rem;
+    }
+    
+    .infographic-step {
+        flex-direction: row !important;
+    }
+    
+    .step-number {
+        left: 3rem;
+    }
+    
+    .step-content {
+        width: 100%;
+        margin-left: 8rem;
+    }
+    
+    .step-icon {
+        display: none;
+    }
+    
+    .calculator-container,
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .footer-logo {
+        text-align: center;
+        align-items: center;
+    }
+    
+    .floating-nav {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    html {
+        font-size: 50%; /* 8px */
+    }
+    
+    /* Hero section adjustments */
+    .hero {
+        padding-bottom: 3rem;
+    }
+    
+    .hero-buttons {
+        margin-bottom: 0.5rem;
+    }
+    
+    .hero-image {
+        margin-top: -2rem;
+    }
+    
+    /* Wave adjustments */
+    .wave-divider {
+        bottom: 0;
+        transform: translateY(0);
+        left: 0;
+        width: 100vw;
+        max-width: none;
+        overflow-x: hidden;
+    }
+    
+    .wave-divider svg {
+        height: 7rem;
+        width: 100vw;
+        max-width: none;
+    }
+    
+    .technologies {
+        margin-top: 0;
+        padding-top: 7rem;
+        width: 100%;
+    }
+    
+    /* Navigation */
+    .menu-toggle {
+        display: block;
+    }
+    
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: white;
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 2rem;
+        transition: height 0.3s ease;
+    }
+    
+    .nav-links.active {
+        height: auto;
+        padding: 2rem;
+        box-shadow: var(--shadow);
+    }
+    
+    .nav-links li {
+        margin: 1.5rem 0;
+        width: 100%;
+    }
+    
+    body.dark-mode .nav-links {
+        background-color: var(--dark-card);
+    }
+    
+    .footer-links {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-container {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+    }
+    
+    .contact-info, .contact-form {
+        width: 100%;
+    }
+    
+    .infographic-step {
+        margin-left: 5rem;
+        margin-bottom: 8rem;
+    }
+    
+    .step-content {
+        width: calc(100% - 7rem);
+        margin-left: 2rem !important;
+        margin-right: 0 !important;
+        background-color: var(--dark-card);
+    }
+    
+    .infographic-container:before {
+        left: 3rem;
+        width: 0.4rem;
+    }
+    
+    .step-number {
+        left: 3rem;
+        width: 6rem;
+        height: 6rem;
+        font-size: 2.6rem;
+    }
+    
+    .step-icon {
+        display: flex !important;
+        left: 3rem !important;
+        right: auto !important;
+        transform: translateY(-50%);
+        z-index: 3;
+        width: 4.5rem;
+        height: 4.5rem;
+    }
+    
+    .infographic-step:nth-child(1) .step-icon i {
+        transform: translateY(-0.2rem);
+    }
+    
+    .infographic-step:nth-child(2) .step-icon i {
+        transform: translateY(-0.2rem);
+    }
+    
+    .infographic-step:nth-child(3) .step-icon i {
+        transform: translateY(-0.1rem);
+    }
+    
+    .infographic-step:nth-child(4) .step-icon i {
+        transform: translateY(-0.1rem);
+    }
+    
+    .infographic-step:nth-child(5) .step-icon i {
+        transform: translateY(-0.2rem);
+    }
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .additional-info-content {
+        flex-direction: column;
+    }
+    
+    .info-image {
+        order: 1;
+    }
+    
+    .info-text {
+        order: 2;
+    }
+    
+    .calculator-visualization {
+        margin-top: 30px;
+    }
+    
+    .calculator-container {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 576px) {
+    .calculator-image,
+    .info-image img {
+        max-width: 100%;
+    }
+    
+    .calculator-visualization {
+        margin-top: 20px;
+    }
+    
+    .info-text ul {
+        padding-left: 15px;
+    }
+}
+
+/* Animations for new sections */
+.pulse-animation {
+    animation: pulse 1s ease-in-out;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.additional-info-content.animate-in .info-image {
+    animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.additional-info-content.animate-in .info-text {
+    animation: slideInRight 0.8s ease-out forwards;
+}
+
+@keyframes slideInLeft {
+    from { 
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from { 
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Highlighting animation for calculator results */
+.result-card.highlight {
+    animation: highlight 1s ease-in-out;
+}
+
+@keyframes highlight {
+    0% { background-color: var(--white); }
+    50% { background-color: rgba(var(--primary-color-rgb), 0.1); }
+    100% { background-color: var(--white); }
+}
+
+.dark-mode .result-card.highlight {
+    animation: highlight-dark 1s ease-in-out;
+}
+
+@keyframes highlight-dark {
+    0% { background-color: var(--dark-card); }
+    50% { background-color: rgba(var(--green-accent-rgb), 0.2); }
+    100% { background-color: var(--dark-card); }
+}
+
+/* Make all clickable elements have proper hover states */
+.read-more, .social-icon, .back-to-top, .floating-nav-item, .tech-card, 
+.blog-card, .case-study-card a, .nav-links a, .footer-col a {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Fix icon alignment globally */
+.step-icon i, .info-icon i, .card-icon i, .social-icon i, 
+.floating-nav-item i, .hero-buttons i, .read-more i,
+.back-to-top i, .menu-toggle i, .mode-toggle i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* Dark Mode Specific Fixes */
+.dark-mode {
+    /* Basic elements */
+    --text-color: var(--dark-text);
+    --bg-color: var(--dark-bg);
+    --card-bg: var(--dark-card);
+    --border-color: #4a5568;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .tech-card,
+.dark-mode .calculator-inputs,
+.dark-mode .result-card,
+.dark-mode .case-study-card,
+.dark-mode .contact-form,
+.dark-mode .blog-card {
+    background-color: var(--dark-card);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    color: var(--dark-text);
+}
+
+.dark-mode .tech-card:hover {
+    background-color: var(--dark-bg-alt);
+    transform: translateY(-10px);
+}
+
+.dark-mode h1, .dark-mode h2, .dark-mode h3, 
+.dark-mode .nav-links a, .dark-mode .logo h1 {
+    color: var(--dark-text);
+}
+
+.dark-mode p, 
+.dark-mode .tech-card p,
+.dark-mode .infographic-step p,
+.dark-mode .blog-content p,
+.dark-mode .case-study-card p,
+.dark-mode .case-study-card li,
+.dark-mode .info-text p,
+.dark-mode .info-text li,
+.dark-mode .footer-bottom p {
+    color: var(--dark-text);
+}
+
+.dark-mode .form-group label {
+    color: var(--dark-text);
+}
+
+.dark-mode .form-group input,
+.dark-mode .form-group select,
+.dark-mode .form-group textarea {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+    border-color: var(--border-color);
+}
+
+.dark-mode .form-group input:focus,
+.dark-mode .form-group select:focus,
+.dark-mode .form-group textarea:focus {
+    border-color: var(--green-accent);
+    box-shadow: 0 0 0 2px rgba(46, 204, 113, 0.2);
+}
+
+.dark-mode .calculator {
+    background-color: var(--dark-bg-alt);
+}
+
+.dark-mode .step-content h3,
+.dark-mode .case-study-card h3,
+.dark-mode .blog-content h3,
+.dark-mode .result-card h3,
+.dark-mode .info-text h3,
+.dark-mode .info-item h3,
+.dark-mode .footer-col h3 {
+    color: var(--green-accent);
+}
+
+.dark-mode .result-value {
+    color: var(--dark-text);
+    font-weight: 700;
+}
+
+.dark-mode .blog-date,
+.dark-mode .info-text li::before {
+    color: var(--green-accent);
+}
+
+.dark-mode .additional-info {
+    background-color: var(--dark-bg);
+}
+
+.dark-mode .info-image img,
+.dark-mode .calculator-image {
+    box-shadow: 0 5px 15px var(--shadow-color);
+}
+
+.dark-mode footer {
+    background-color: var(--dark-card);
+}
+
+.dark-mode .footer-col ul li a {
+    color: var(--dark-text);
+}
+
+.dark-mode .footer-col ul li a:hover {
+    color: var(--green-accent);
+}
+
+.dark-mode .floating-nav-item {
+    background-color: var(--dark-card);
+    color: var(--dark-text);
+}
+
+.dark-mode .floating-nav-item:hover {
+    background-color: var(--green-accent);
+}
+
+.dark-mode .mode-toggle {
+    background-color: var(--dark-card);
+}
+
+/* Image quality improvements - adding high-quality image handling */
+.high-quality-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.high-quality-image:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.dark-mode .high-quality-image {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.hero-image img,
+.info-image img,
+.calculator-visualization img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+/* Improved button focus states for accessibility */
+.btn-primary:focus, .btn-secondary:focus,
+.floating-nav-item:focus, .social-icon:focus,
+.read-more:focus, .back-to-top:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.3);
+}
+
+.dark-mode .btn-primary:focus, 
+.dark-mode .btn-secondary:focus,
+.dark-mode .floating-nav-item:focus, 
+.dark-mode .social-icon:focus,
+.dark-mode .read-more:focus, 
+.dark-mode .back-to-top:focus {
+    box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.5);
+}
+
+/* Z-index fixes for proper clickability */
+.floating-nav {
+    z-index: 100;
+}
+
+.mode-toggle {
+    z-index: 100;
+}
+
+nav {
+    z-index: 90;
+}
+
+.hero, .technologies, .infographic, .case-studies, 
+.calculator, .blog, .additional-info, .contact, footer {
+    position: relative;
+    z-index: 1;
+}
+
+/* Ensure all links are properly clickable */
+a, button, .social-icon, .floating-nav-item, .back-to-top, .read-more {
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+}
+
+/* Correct hover effects for floating navigation */
+.floating-nav-item {
+    cursor: pointer;
+}
+
+/* Improve button clickability */
+button {
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+/* Pointer cursor for all interactive elements */
+.tech-card, .blog-card, .social-icon, 
+.floating-nav-item, .back-to-top, .menu-toggle, 
+.mode-toggle, .read-more, .btn-primary, .btn-secondary, 
+.case-study-card a, .hero-buttons a {
+    cursor: pointer !important;
+}
+
+/* All buttons and clickable elements should have higher z-index */
+.btn-primary, .btn-secondary, .read-more, .social-icon, 
+.floating-nav-item, .back-to-top, .hero-buttons a, 
+.case-study-card a, .tech-card a {
+    z-index: 5 !important;
+    position: relative !important;
+}
+
+/* Active state for buttons */
+.btn-primary:active, .btn-secondary:active, 
+button:active, .floating-nav-item:active {
+    transform: translateY(2px);
+}
+
+/* Ensure all interactive elements have proper focus states for keyboard navigation */
+a:focus, button:focus, .social-icon:focus, 
+.floating-nav-item:focus, .back-to-top:focus, 
+.mode-toggle:focus, .menu-toggle:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+.dark-mode a:focus, .dark-mode button:focus, 
+.dark-mode .social-icon:focus, .dark-mode .floating-nav-item:focus, 
+.dark-mode .back-to-top:focus, .dark-mode .mode-toggle:focus, 
+.dark-mode .menu-toggle:focus {
+    outline-color: var(--green-accent);
+}
+
+/* Fix the infographic section in dark mode */
+.dark-mode .infographic {
+    background-color: var(--dark-bg-alt);
+}
+
+.dark-mode .infographic-container:before {
+    background-color: var(--green-accent);
+}
+
+.dark-mode .step-content {
+    background-color: var(--dark-card);
+    color: var(--dark-text);
+}
+
+.dark-mode .step-icon {
+    background-color: var(--secondary-color);
+}
+
+.dark-mode .step-icon i {
+    color: white;
+}
+
+.dark-mode .step-number {
+    background: linear-gradient(135deg, var(--green-accent), var(--secondary-color));
+    color: var(--dark-bg);
+}
+
+/* Fix the contact section in dark mode */
+.dark-mode .contact {
+    background-color: var(--dark-bg-alt);
+}
+
+.dark-mode .contact-form {
+    background-color: var(--dark-card);
+    color: var(--dark-text);
+}
+
+.dark-mode .info-item h3,
+.dark-mode .contact h2 {
+    color: var(--green-accent);
+}
+
+.dark-mode .contact p,
+.dark-mode .info-item p {
+    color: var(--dark-text);
+}
+
+/* Improve icon alignment across the site */
+.card-icon i,
+.step-icon i,
+.info-icon i,
+.social-icon i,
+.floating-nav-item i,
+.back-to-top i,
+.mode-toggle i,
+.menu-toggle i,
+.read-more i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* Fix infographic steps alignment */
+.infographic-step {
+    align-items: flex-start;
+}
+
+.step-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.infographic-step:nth-child(odd) .step-content {
+    margin-right: 5rem;
+}
+
+.infographic-step:nth-child(even) .step-content {
+    margin-left: 5rem;
+}
+
+/* Fix contact info alignment */
+.info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.info-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* Fix social media icon alignment */
+.social-media {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Fix button icon alignment */
+.btn-primary i,
+.btn-secondary i,
+.read-more i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0.5rem;
+}
+
+/* Ensure contact form is visible in dark mode */
+.dark-mode .contact-form input,
+.dark-mode .contact-form textarea,
+.dark-mode .contact-form select {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+    border: 1px solid var(--border-color);
+}
+
+.dark-mode .contact-form label {
+    color: var(--dark-text);
+}
+
+.dark-mode .contact-form input:focus,
+.dark-mode .contact-form textarea:focus,
+.dark-mode .contact-form select:focus {
+    border-color: var(--green-accent);
+    box-shadow: 0 0 0 2px rgba(46, 204, 113, 0.2);
+}
+
+/* Ensure better visibility for text elements in dark mode */
+.dark-mode .section-header p {
+    color: var(--dark-text);
+}
+
+.dark-mode .infographic .section-header h2,
+.dark-mode .contact .section-header h2 {
+    color: var(--dark-text);
+}
+
+.dark-mode .infographic .section-header p,
+.dark-mode .contact .section-header p {
+    color: rgba(236, 240, 241, 0.8);
+}
+
+.dark-mode .step-content h3 {
+    color: var(--green-accent);
+}
+
+.dark-mode .step-content p {
+    color: var(--dark-text);
+}
+
+/* Improve social media icons in dark mode */
+.dark-mode .social-icon {
+    background-color: var(--green-accent);
+    color: var(--dark-bg);
+}
+
+.dark-mode .social-icon:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-0.5rem);
+}
+
+/* Make sure all contact form elements are visible */
+.dark-mode .form-group {
+    margin-bottom: 2rem;
+}
+
+.dark-mode .contact-form button {
+    background-color: var(--green-accent);
+    color: var(--dark-bg);
+    border: none;
+}
+
+.dark-mode .contact-form button:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Fix dark mode process steps in mobile view */
+.dark-mode .infographic-container:before {
+    background-color: var(--green-accent);
+}
+
+.dark-mode .step-number {
+    background: linear-gradient(135deg, var(--green-accent), var(--secondary-color));
+    color: var(--dark-bg);
+}
+
+.dark-mode .step-content {
+    background-color: var(--dark-card);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .step-content p {
+    color: var(--dark-text);
+}
+
+@media screen and (max-width: 768px) {
+    .dark-mode .step-content {
+        background-color: var(--dark-card) !important;
+    }
+    
+    /* Fix spacing between steps */
+    .infographic-step:last-child {
+        margin-bottom: 2rem;
+    }
+    
+    /* Ensure the icons are visible above the line */
+    .infographic-container:before {
+        z-index: 1;
+    }
+    
+    .step-number {
+        z-index: 3;
+    }
+    
+    .step-content {
+        z-index: 2;
+        position: relative;
+    }
+}
+
+/* Dark Mode Support for Wave */
+body.dark-mode .technologies {
+    background-color: var(--dark-bg);
+    
+
+}
+
+/* Public Awareness Section */
+.public-awareness {
+    padding: 10rem 0;
+    background-color: var(--light-bg);
+    position: relative;
+    z-index: 1;
+}
+
+.awareness-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5rem;
+    align-items: center;
+}
+
+.awareness-image {
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+}
+
+.awareness-image img {
+    max-width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    transition: transform 0.5s ease;
+}
+
+.awareness-image img:hover {
+    transform: scale(1.03);
+}
+
+.awareness-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.awareness-text h3 {
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    font-size: 2.8rem;
+}
+
+.awareness-text p {
+    margin-bottom: 3rem;
+    font-size: 1.6rem;
+    line-height: 1.8;
+}
+
+.awareness-features {
+    margin-bottom: 3rem;
+}
+
+.feature-item {
+    display: flex;
+    margin-bottom: 2.5rem;
+    border-left: 3px solid var(--primary-color);
+    padding-left: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateX(5px);
+}
+
+.feature-icon {
+    color: var(--primary-color);
+    font-size: 2.4rem;
+    margin-right: 1.5rem;
+}
+
+.feature-text h4 {
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+    color: var(--text-dark);
+}
+
+.feature-text p {
+    font-size: 1.5rem;
+    color: var(--text-medium);
+    margin-bottom: 0;
+}
+
+.awareness-cta {
+    display: flex;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+/* Dark Mode Support for Public Awareness */
+body.dark-mode .public-awareness {
+    background-color: var(--dark-bg);
+}
+
+body.dark-mode .awareness-text h3 {
+    color: var(--green-accent);
+}
+
+body.dark-mode .feature-item {
+    border-left-color: var(--green-accent);
+}
+
+body.dark-mode .feature-icon {
+    color: var(--green-accent);
+}
+
+body.dark-mode .feature-text h4 {
+    color: var(--dark-text);
+}
+
+body.dark-mode .feature-text p {
+    color: var(--dark-text);
+}
+
+/* Responsive Styles for Public Awareness Section */
+@media screen and (max-width: 992px) {
+    .awareness-content {
+        flex-direction: column;
+    }
+    
+    .awareness-image {
+        order: 1;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    .awareness-text {
+        order: 2;
+    }
+    
+    .awareness-cta {
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .feature-item {
+        flex-direction: column;
+    }
+    
+    .feature-icon {
+        margin-bottom: 1rem;
+        margin-right: 0;
+    }
+    
+    .awareness-cta {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .awareness-cta .btn-primary,
+    .awareness-cta .btn-secondary {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Chatbot Styles */
+.chatbot-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.chat-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.chat-button:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.05);
+}
+
+.chatbot-container {
+    display: none;
+    width: 350px;
+    height: 500px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.chatbot-container.active {
+    display: block;
+}
+
+.chat-icon {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+}
+
+/* Dark Mode Support for Chatbot */
+body.dark-mode .chat-button {
+    background-color: var(--green-accent);
+}
+
+body.dark-mode .chat-button:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Make sure chatbot doesn't conflict with floating-nav at mobile sizes */
+@media screen and (max-width: 768px) {
+    .chatbot-widget {
+        bottom: 70px;
+    }
+} 
